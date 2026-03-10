@@ -1,5 +1,7 @@
 # GIF Ace
 
+Curated on LeanVibe: https://leanvibe.io/vibe/gif-ace-mmk3sd6v
+
 ## Getting started
 
 You can edit the project locally with your preferred IDE.

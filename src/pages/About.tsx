@@ -23,7 +23,15 @@ export default function About() {
   const features = [
     { title: t.aboutFeature1Title, desc: t.aboutFeature1Desc, Icon: featureIcons[0] },
     { title: t.aboutFeature2Title, desc: t.aboutFeature2Desc, Icon: featureIcons[1] },
-    { title: t.aboutFeature3Title, desc: t.aboutFeature3Desc, Icon: featureIcons[2] },
+    {
+      title: t.aboutFeature3Title,
+      desc: t.aboutFeature3Desc,
+      Icon: featureIcons[2],
+      link: {
+        href: 'https://github.com/salvo1661/giface',
+        label: 'github.com/salvo1661/giface',
+      },
+    },
     { title: t.aboutFeature4Title, desc: t.aboutFeature4Desc, Icon: featureIcons[3] },
   ];
 
@@ -65,7 +73,7 @@ export default function About() {
 
         {/* Features Grid */}
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {features.map(({ title, desc, Icon }) => (
+          {features.map(({ title, desc, Icon, link }) => (
             <Card key={title} className="border-border">
               <CardContent className="pt-6 space-y-3">
                 <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -73,6 +81,16 @@ export default function About() {
                 </div>
                 <h2 className="text-lg font-semibold">{title}</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                {link ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-medium text-primary hover:underline"
+                  >
+                    {link.label}
+                  </a>
+                ) : null}
               </CardContent>
             </Card>
           ))}
