@@ -1,5 +1,7 @@
 import { useGifProject } from '@/hooks/useGifProject';
-import { useLocale } from '@/i18n/useLocale';
+import { buildLocalePath, useLocale } from '@/i18n/useLocale';
+import { useLocation, useNavigate } from 'react-router-dom';
+import type { Locale } from '@/i18n/translations';
 import { Toolbar } from './Toolbar';
 import { PreviewCanvas } from './PreviewCanvas';
 import { PropertiesPanel } from './PropertiesPanel';
@@ -9,6 +11,16 @@ import { PrivacyNotice } from './PrivacyNotice';
 export function GifEditor() {
   const project = useGifProject();
   const { t, locale, setLocale, locales } = useLocale();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleChangeLocale = (nextLocale: Locale) => {
+    setLocale(nextLocale);
+    const target = buildLocalePath(nextLocale, location.pathname) + location.search + location.hash;
+    navigate(target);
+  };
+
+  const aboutHref = buildLocalePath(locale, '/about');
 
   return (
     <div className="h-screen flex flex-col bg-background text-foreground overflow-hidden" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
@@ -18,7 +30,8 @@ export function GifEditor() {
         t={t}
         locale={locale}
         locales={locales}
-        onChangeLocale={setLocale}
+        aboutHref={aboutHref}
+        onChangeLocale={handleChangeLocale}
         onOpenFile={project.importGif}
         onAddImages={files => project.addImages(files)}
         onClear={project.clearProject}

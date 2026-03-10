@@ -10,6 +10,7 @@ interface ToolbarProps {
   t: Translations;
   locale: Locale;
   locales: Locale[];
+  aboutHref: string;
   onChangeLocale: (locale: Locale) => void;
   onOpenFile: (file: File) => void;
   onAddImages: (files: File[]) => void;
@@ -25,6 +26,7 @@ export function Toolbar({
   t,
   locale,
   locales,
+  aboutHref,
   onChangeLocale,
   onOpenFile,
   onAddImages,
@@ -102,7 +104,7 @@ export function Toolbar({
         </Button>
       </div>
 
-      <Link to="/about">
+      <Link to={aboutHref}>
         <Button variant="ghost" size="sm" className="gap-1 text-xs">
           <Info className="h-3.5 w-3.5" />
           {t.about}
