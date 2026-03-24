@@ -110,19 +110,12 @@ export default function About() {
           <h2 className="text-2xl font-semibold">{t.aboutContactTitle}</h2>
           <p className="text-muted-foreground">{t.aboutContactDesc}</p>
           <a
-            href="https://github.com/salvo1661/giface"
+            href="https://leanvibe.io/vibe/gif-ace-mmk3sd6v?tab=forum"
             target="_blank"
             rel="noreferrer"
             className="block text-sm font-medium text-primary hover:underline"
           >
-            github.com/salvo1661/giface
-          </a>
-          <a
-            href={`mailto:${t.aboutContactEmail}`}
-            className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-          >
-            <Mail className="h-4 w-4" />
-            {t.aboutContactEmail}
+            LeanVibe GIF ACE Forum
           </a>
         </section>
       </main>
