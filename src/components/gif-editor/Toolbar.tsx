@@ -44,7 +44,7 @@ export function Toolbar({
     <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-card">
       <div className="flex items-center gap-1 mr-auto">
         <span className="font-mono text-sm font-semibold tracking-tight text-primary mr-3">
-          GIF Editor
+          GIF Ace Editor
         </span>
 
         <input
