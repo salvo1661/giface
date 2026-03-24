@@ -51,7 +51,7 @@ export async function decodeGif(buffer: ArrayBuffer): Promise<GifFrame[]> {
       id: generateFrameId(),
       imageData,
       dataUrl,
-      delay: raw.delay * 10 || 100, // gifuct-js returns delay in centiseconds
+      delay: raw.delay || 100,
       width: gifWidth,
       height: gifHeight,
     });
